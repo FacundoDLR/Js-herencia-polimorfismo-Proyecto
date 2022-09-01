@@ -3,6 +3,10 @@ export class Cuenta{
     #saldo;
 
     constructor(cliente, numero, agencia, saldo){
+        
+        if (this.constructor == Cuenta){
+            throw new Error('No se debe instanciar objetos de la calse cuenta');
+        }
         this.#cliente = cliente;
         this.numero = numero;
         this.agencia= agencia;
@@ -25,7 +29,8 @@ export class Cuenta{
     }
 
     retirarDeCuenta(valor){
-        _retirarDeCuenta(valor, 0);
+        //Metodo abstracto
+        throw new error('Debe implementar el metodo retirarDeCuenta en su clase');
     }
 
     _retirarDeCuenta(valor, comision) {
@@ -44,5 +49,9 @@ export class Cuenta{
         cuentaDestino.depositoEnCuenta(valor);
         valor = 200;
         valor = valor*1000;
+    }
+
+    prueba() {
+        console.log('Método padre');
     }
 }
